@@ -1,0 +1,13 @@
+Goals:
+1. Admin Log-In
+2. Patient Log-In
+3. Possible Dr. Log-In
+4. User Registration
+	-Username
+	-Password
+	-# of family members
+	-address
+	-code w/prescription
+5. Way to identify amount spent on fruits and vegetables
+6. Make QR code for coupon
+7. Determine a reload system
