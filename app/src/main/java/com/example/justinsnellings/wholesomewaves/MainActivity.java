@@ -1,10 +1,14 @@
 package com.example.justinsnellings.wholesomewaves;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }
+
+    Button button1 = (Button) findViewById(R.id.button1);
+
+    button1.setOnClickListener(new OnClickListener() {
+        public void onClick(View arg0) {
+            Intent intent = new Intent(MainActivity.this, qrcode.class);
+            startActivity(intent);
+        }
+    });
+}
 
 }
