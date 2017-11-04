@@ -1,5 +1,6 @@
 package com.example.justinsnellings.wholesomewaves;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -27,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        Toast.makeText(MainActivity.this, "current user: "+user,
-                Toast.LENGTH_LONG).show();
+        if(user.getUid().length()>=0) {
+            Intent myIntent = new Intent(MainActivity.this, qrcode.class);
+            startActivity(myIntent);
+        }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

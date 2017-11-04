@@ -59,8 +59,12 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
-        Toast.makeText(LoginActivity.this, "current user: "+user,
+        Toast.makeText(LoginActivity.this, "logged in as : "+user,
                 Toast.LENGTH_LONG).show();
+        if(user.isEmailVerified()) {
+            Intent myIntent = new Intent(LoginActivity.this, qrcode.class);
+            startActivity(myIntent);
+        }
     }
 
     @Override
