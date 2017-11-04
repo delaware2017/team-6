@@ -15,7 +15,7 @@ import com.google.zxing.common.BitMatrix;
 
 import static com.wholesomewave.wholesomewave.R.*;
 
-public class MainActivity extends AppCompatActivity {
+public class QR extends AppCompatActivity {
 
     ImageView imageView;
     Button button;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_main);
+        setContentView(layout.activity_QR);
 
         imageView = (ImageView)findViewById(id.imageView);
         editText = (EditText)findViewById(id.editText);
