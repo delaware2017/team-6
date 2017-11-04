@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.email_sign_in_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
+        auth = FirebaseAuth.getInstance();
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
 
