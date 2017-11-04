@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -22,29 +25,33 @@ public class qrcode extends AppCompatActivity {
 
     ImageView imageView;
     Button button;
-    EditText editText;
-    String EditTextValue ;
     Thread thread ;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
     public final static int QRcodeWidth = 500 ;
     Bitmap bitmap ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_main);
+        setContentView(layout.activity_qrcode);
 
         imageView = (ImageView)findViewById(id.imageView);
-        editText = (EditText)findViewById(id.editText);
         button = (Button)findViewById(id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                EditTextValue = editText.getText().toString();
 
                 try {
-                    bitmap = TextToImageEncode(EditTextValue);
 
+                    if(user.getUid() != null){
+                        bitmap = TextToImageEncode(user.getUid());
+                    }
+                    else
+                        bitmap = TextToImageEncode("Sample");
                     imageView.setImageBitmap(bitmap);
 
                 } catch (WriterException e) {
@@ -61,7 +68,7 @@ public class qrcode extends AppCompatActivity {
         try {
             bitMatrix = new MultiFormatWriter().encode(
                     Value,
-                    BarcodeFormat.DATA_MATRIX.QR_CODE,
+                    BarcodeFormat.QR_CODE,
                     QRcodeWidth, QRcodeWidth, null
             );
 

@@ -32,18 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        Toast.makeText(MainActivity.this, "current user: "+user,
-                Toast.LENGTH_LONG).show();
-
-        if(user != null) {
-            Intent myIntent;
-            myIntent = new Intent(this, Slidemenubar.class);
-            startActivity(myIntent);
-        }
     }
-
-
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -74,6 +63,5 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
-
 
 }
