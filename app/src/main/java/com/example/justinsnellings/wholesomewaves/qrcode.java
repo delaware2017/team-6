@@ -48,7 +48,7 @@ public class qrcode extends AppCompatActivity {
                 try {
 
                     if(user.getUid() != null){
-                        bitmap = TextToImageEncode(user.getUid());
+                        bitmap = TextToImageEncode(user.getEmail());
                     }
                     else
                         bitmap = TextToImageEncode("Sample");

@@ -86,8 +86,7 @@ public class Slidemenubar extends AppCompatActivity
 
         if (id == R.id.nav_qrcode) {
             Intent myIntent;
-            myIntent = new Intent(this, Slidemenubar.class);
-            startActivity(myIntent);
+            startActivity(new Intent(Slidemenubar.this,qrcode.class));
         }
         else if (id == R.id.nav_first_layout) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, new FirstFragment()).commit();
