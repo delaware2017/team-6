@@ -349,7 +349,7 @@ public class CreateUserActivity extends AppCompatActivity implements LoaderCallb
                         startActivity(intent);
 
                     } else {
-                        startActivity(new Intent(CreateUserActivity.this, LoginActivity.class));
+                        startActivity(new Intent(CreateUserActivity.this, MainActivity.class));
                         finish();
                     }
                 }
