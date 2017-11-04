@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,6 +37,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,15 +54,25 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+        Toast.makeText(LoginActivity.this, "current user: "+user,
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        auth = FirebaseAuth.getInstance();
 
         btnSignIn = (Button) findViewById(R.id.email_sign_in_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
-        auth = FirebaseAuth.getInstance();
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
 
@@ -89,7 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(LoginActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
+                                            Toast.LENGTH_LONG).show();
+                                        Log.d("LoginActivity", task.getException().toString());
                                 } else {
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                     finish();
