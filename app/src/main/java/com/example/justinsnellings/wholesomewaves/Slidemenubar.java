@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class Slidemenubar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -84,12 +85,7 @@ public class Slidemenubar extends AppCompatActivity
 
         FragmentManager fragmentManager = getFragmentManager();
 
-        if (id == R.id.nav_qrcode) {
-            Intent myIntent;
-            myIntent = new Intent(this, Slidemenubar.class);
-            startActivity(myIntent);
-        }
-        else if (id == R.id.nav_first_layout) {
+        if (id == R.id.nav_first_layout) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, new FirstFragment()).commit();
 
         } else if (id == R.id.nav_second_layout) {
