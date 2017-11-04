@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.justinsnellings.wholesomewaves.LoginActivity">
+    tools:context="com.example.justinsnellings.wholesomewaves.CreateUserActivity">
 
     <!-- Login progress -->
     <ProgressBar
@@ -63,6 +63,12 @@
 
             </android.support.design.widget.TextInputLayout>
 
+            <EditText
+                android:id="@+id/numFamily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/email_sign_in_button"

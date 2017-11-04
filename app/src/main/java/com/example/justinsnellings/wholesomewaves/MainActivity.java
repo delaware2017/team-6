@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        if(user.getUid().length()>=0) {
-            Intent myIntent = new Intent(MainActivity.this, qrcode.class);
-            startActivity(myIntent);
-        }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

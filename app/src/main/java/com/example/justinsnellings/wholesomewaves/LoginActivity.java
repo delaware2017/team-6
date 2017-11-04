@@ -59,11 +59,11 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
 
-        Toast.makeText(LoginActivity.this, "logged in as : "+user,
-                Toast.LENGTH_LONG).show();
-        if(user.isEmailVerified()) {
-            Intent myIntent = new Intent(LoginActivity.this, qrcode.class);
-            startActivity(myIntent);
+
+        if(user!=null) {
+            Toast.makeText(LoginActivity.this, "logged in as : "+user.getUid(),
+                    Toast.LENGTH_LONG).show();
+            auth.signOut();
         }
     }
 
@@ -82,6 +82,9 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v){
+
+                auth = FirebaseAuth.getInstance();
+                auth.signOut();
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
 
@@ -95,18 +98,21 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                auth.createUserWithEmailAndPassword(email, password)
+                auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(LoginActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Signed in" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(LoginActivity.this, "Authentication failed." + task.getException(),
+                                    Toast.makeText(LoginActivity.this, "Authentication failed." + "Create account with this email credentials",
                                             Toast.LENGTH_LONG).show();
                                         Log.d("LoginActivity", task.getException().toString());
+                                        Intent intent = new Intent(LoginActivity.this, CreateUserActivity.class);
+                                        startActivity(intent);
+
                                 } else {
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                     finish();
