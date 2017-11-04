@@ -3,7 +3,7 @@
 %% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{animate}
+\usepackage{animate,pst-fractal}
 \usetikzlibrary{decorations.fractals}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -51,10 +51,16 @@
 	{\it Places}\\
 }
 \date{
-	\begin{tikzpicture}[decoration=Koch curve type 2] 
-		\draw[DeepSkyBlue4] decorate{ decorate{ decorate{ decorate{ (0,0) -- (3,0) }}}}; 
-	\end{tikzpicture}  
-	\\
+	 barnsleyFernIFS = {
+  {{{.85, .04}, {-.04, .85}}, {0, 1.6}},
+  {{{-.15, .28}, {.26, .24}}, {0, .44}},
+  {{{.2, -.26}, {.23, .22}}, {0, 1.6}},
+  {{{0, 0}, {0, .16}}, {0, 0}}
+};
+ShowIFSStochastic[
+  barnsleyFernIFS, 70000,
+  Colors -> {Darker[Green, 0.6], Darker[Green, 0.4],
+    Darker[Green, 0.4], Black}]
 	\vspace{1cm}
 	\today
 }
