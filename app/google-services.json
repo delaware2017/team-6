@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "528655802611",
+    "firebase_url": "https://codeforgood2017.firebaseio.com",
+    "project_id": "codeforgood2017",
+    "storage_bucket": "codeforgood2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528655802611:android:19bd7a0b966e77d7",
+        "android_client_info": {
+          "package_name": "com.example.justinsnellings.wholesomewaves"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528655802611-bmhuhgas7bhneleu1b7v012679po9rbu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.justinsnellings.wholesomewaves",
+            "certificate_hash": "8e328b9ce1813f91b923dae23bdde52a70b2bcdb"
+          }
+        },
+        {
+          "client_id": "528655802611-6qlbg41kergqlmrkqt1npk22m6vllasi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzYFA-hOV1tDW7v-3Ja2TcqyFW7GB-9v4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528655802611-6qlbg41kergqlmrkqt1npk22m6vllasi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
